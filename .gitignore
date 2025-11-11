@@ -1,0 +1,5 @@
+# Bazel
+/bazel-*
+
+# Maven lock file (generated)
+maven_install.json

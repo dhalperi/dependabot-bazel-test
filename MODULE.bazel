@@ -1,0 +1,28 @@
+"""Test repository for Dependabot Bazel support."""
+
+module(
+    name = "dependabot-bazel-test",
+    version = "0.0.0",
+)
+
+# Use intentionally outdated versions to test Dependabot updates
+bazel_dep(name = "bazel_skylib", version = "1.5.0")  # Current is 1.8.2
+bazel_dep(name = "rules_java", version = "7.0.0")     # Current is 8.16.1
+bazel_dep(name = "rules_jvm_external", version = "6.0")  # Current is 6.9
+bazel_dep(name = "rules_python", version = "0.31.0")  # Current is 1.6.3
+
+# Maven dependencies with outdated versions
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    name = "maven",
+    artifacts = [
+        "com.google.guava:guava:32.0.0-jre",  # Current is 33.4.0-jre
+        "junit:junit:4.12",  # Current is 4.13.2
+        "org.apache.commons:commons-lang3:3.12.0",  # Current is 3.19.0
+    ],
+    lock_file = "@//:maven_install.json",
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+)
+use_repo(maven, "maven")

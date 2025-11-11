@@ -1,0 +1,27 @@
+enable-beta-ecosystems: true
+
+version: 2
+updates:
+  # Test Bazel dependency updates
+  - package-ecosystem: "bazel"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    # Group related dependencies
+    groups:
+      bazel-rules:
+        patterns:
+          - "bazel_*"
+          - "rules_*"
+      java-libs:
+        patterns:
+          - "com.google.*"
+          - "org.apache.*"
+          - "junit:junit"
+
+  # Also test GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
