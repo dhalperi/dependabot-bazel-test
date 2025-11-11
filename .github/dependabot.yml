@@ -1,6 +1,5 @@
-enable-beta-ecosystems: true
-
 version: 2
+enable-beta-ecosystems: true
 updates:
   # Test Bazel dependency updates
   - package-ecosystem: "bazel"
