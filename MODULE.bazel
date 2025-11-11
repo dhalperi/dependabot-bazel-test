@@ -6,10 +6,10 @@ module(
 )
 
 # Use intentionally outdated versions to test Dependabot updates
-bazel_dep(name = "bazel_skylib", version = "1.5.0")  # Current is 1.8.2
-bazel_dep(name = "rules_java", version = "7.0.0")     # Current is 8.16.1
-bazel_dep(name = "rules_jvm_external", version = "6.0")  # Current is 6.9
-bazel_dep(name = "rules_python", version = "0.31.0")  # Current is 1.6.3
+bazel_dep(name = "bazel_skylib", version = "1.8.2")  # Current is 1.8.2
+bazel_dep(name = "rules_java", version = "9.0.3")     # Current is 8.16.1
+bazel_dep(name = "rules_jvm_external", version = "6.9")  # Current is 6.9
+bazel_dep(name = "rules_python", version = "1.7.0-rc4")  # Current is 1.6.3
 
 # Maven dependencies with outdated versions
 # Note: Lock file disabled for Dependabot compatibility (beta doesn't support lock files)
