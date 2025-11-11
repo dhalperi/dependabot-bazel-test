@@ -20,6 +20,7 @@ maven.install(
         "junit:junit:4.12",  # Current is 4.13.2
         "org.apache.commons:commons-lang3:3.12.0",  # Current is 3.19.0
     ],
+    fail_if_repin_required = False,  # Allow initial setup without lock file
     lock_file = "@//:maven_install.json",
     repositories = [
         "https://repo1.maven.org/maven2",
