@@ -2,6 +2,7 @@ version: 2
 enable-beta-ecosystems: true
 updates:
   # Test Bazel dependency updates
+  # Note: Beta only supports bazel_dep() declarations, not maven.install() artifacts
   - package-ecosystem: "bazel"
     directory: "/"
     schedule:
@@ -13,11 +14,6 @@ updates:
         patterns:
           - "bazel_*"
           - "rules_*"
-      java-libs:
-        patterns:
-          - "com.google.*"
-          - "org.apache.*"
-          - "junit:junit"
 
   # Also test GitHub Actions updates
   - package-ecosystem: "github-actions"
