@@ -12,6 +12,7 @@ bazel_dep(name = "rules_jvm_external", version = "6.0")  # Current is 6.9
 bazel_dep(name = "rules_python", version = "0.31.0")  # Current is 1.6.3
 
 # Maven dependencies with outdated versions
+# Note: Lock file disabled for Dependabot compatibility (beta doesn't support lock files)
 maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 maven.install(
     name = "maven",
@@ -20,8 +21,6 @@ maven.install(
         "junit:junit:4.12",  # Current is 4.13.2
         "org.apache.commons:commons-lang3:3.12.0",  # Current is 3.19.0
     ],
-    fail_if_repin_required = False,  # Allow initial setup without lock file
-    lock_file = "@//:maven_install.json",
     repositories = [
         "https://repo1.maven.org/maven2",
     ],
